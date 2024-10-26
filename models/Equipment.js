@@ -6,6 +6,10 @@ const equipmentSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+  },
   type: {
     type: String,
     required: true,
