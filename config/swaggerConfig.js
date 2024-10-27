@@ -27,6 +27,17 @@ const options = {
           },
           required: ["name", "quantity", "type"],
         },
+        ServiceOrder: {
+          type: "object",
+          properties: {
+            equipment: { type: "string" },
+            quantity: { type: "number" },
+            status: { type: "string" },
+            sendDate: { type: "string", format: "date-time" },
+            returnDate: { type: "string", format: "date-time" },
+          },
+          required: ["equipment", "quantity", "status"],
+        },
       },
     },
   },
