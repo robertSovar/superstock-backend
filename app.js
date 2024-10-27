@@ -6,6 +6,7 @@ import connectToMongo from "./config/connectToMongo.js";
 import equipmentRouter from "./routes/api/equipmentRoutes.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpecs from "./config/swaggerConfig.js";
+import serviceRouter from "./routes/api/serviceRoutes.js";
 
 dotenv.config();
 
@@ -17,5 +18,6 @@ app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 app.use("/api/equipment", equipmentRouter);
+app.use("/api/service", serviceRouter);
 
 export default app;

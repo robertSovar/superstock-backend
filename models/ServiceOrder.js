@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const serviceOrderSchema = new mongoose.Schema({
   equipment: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "Equipment",
     required: true,
   },
@@ -25,4 +25,10 @@ const serviceOrderSchema = new mongoose.Schema({
     type: Date,
   },
 });
-export default mongoose.model("ServiceOrder", serviceOrderSchema);
+const ServiceOrder = mongoose.model(
+  "ServiceOrder",
+  serviceOrderSchema,
+  "serviceOrders"
+);
+
+export default ServiceOrder;
