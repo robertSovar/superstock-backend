@@ -50,9 +50,7 @@ const createEquipment = async (req, res) => {
       name: req.body.name,
     });
     if (equipmentExists) {
-      res
-        .status(statusCodes.badRequest)
-        .json({ message: "Equipment already exists" });
+      quantity += equipmentExists.quantity;
       return;
     }
 
