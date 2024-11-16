@@ -50,13 +50,20 @@ const createEquipment = async (req, res) => {
       name: req.body.name,
     });
     if (equipmentExists) {
-      quantity += equipmentExists.quantity;
+      equipmentExists.quantity += req.body.quantity;
+      await equipmentExists.save();
+      res.status(statusCodes.created).json({
+        message: "Equipment quantity updated",
+        equipment: equipmentExists,
+      });
       return;
     }
 
     const newEquipment = await equipment.save();
-    res.status(statusCodes.created).json(newEquipment);
-    console.log("Equipment created".green);
+    res.status(statusCodes.created).json({
+      message: "Equipment created",
+      equipment: newEquipment,
+    });
   } catch (err) {
     res.status(statusCodes.internalServerError).json({ message: err.message });
     console.log("There was an error creating equipment".red);
