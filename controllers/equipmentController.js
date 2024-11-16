@@ -56,6 +56,7 @@ const createEquipment = async (req, res) => {
         message: "Equipment quantity updated",
         equipment: equipmentExists,
       });
+      console.log("Equipment quantity updated".green);
       return;
     }
 
