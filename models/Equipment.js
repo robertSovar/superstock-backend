@@ -13,6 +13,7 @@ const equipmentSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
+    enum: ["Echipament terminal", "Echipament PC", "Echipament aparate"],
   },
   image: {
     type: String,
@@ -20,6 +21,7 @@ const equipmentSchema = new mongoose.Schema({
   addedDate: {
     type: String,
     required: true,
+    default: Date.now,
   },
   status: {
     type: String,
