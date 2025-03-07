@@ -21,7 +21,7 @@ const equipmentSchema = new mongoose.Schema({
   addedDate: {
     type: String,
     required: true,
-    default: Date(),
+    default: Date.now(),
   },
   status: {
     type: String,
@@ -32,7 +32,7 @@ const equipmentSchema = new mongoose.Schema({
   purchaseDate: {
     type: Date,
     required: true,
-    default: Date(),
+    default: Date.now(),
   },
 });
 const Equipment = mongoose.model("Equipment", equipmentSchema, "equipments");
